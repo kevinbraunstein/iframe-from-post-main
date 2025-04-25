@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>POST to Iframe Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>POST to Iframe Demo</h1>
+
+  <iframe name="myIframe" id="myIframe"></iframe>
+
+  <form id="myForm" action="iframe_content.html" method="POST" target="myIframe">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="Default Name"><br><br>
+    <label for="message">Message:</label>
+    <input type="text" id="message" name="message" value="Default Message"><br><br>
+    <button type="submit">Submit to Iframe</button>
+  </form>
+
+  <script>
+    // Basic JavaScript to enhance the form submission
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      // Prevent the default form submission (we're using the iframe)
+      // event.preventDefault(); //Not needed when targeting an iframe.
+
+      // You could add more logic here, like validation or data manipulation
+      console.log("Form submitted to iframe.");
+    });
+
+    // Optional: Log when the iframe loads
+    document.getElementById('myIframe').addEventListener('load', function() {
+      console.log("Iframe content loaded.");
+    });
+  </script>
+</body>
+</html>
